@@ -105,10 +105,15 @@ git browse
 ## first commit
 
 ```powershell
+git add README.md
+git commit -m "first commit"
+
+or
+
 git add .
 git commit -m "first commit"
-git status
 
+git status
 git branch
 
 git branch -m master
