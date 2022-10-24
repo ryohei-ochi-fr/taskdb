@@ -24,6 +24,13 @@ export class CreateJobDto {
 
   @ApiProperty({
     required: true,
+    description: '変換元ファイルパス',
+    example: '/path/to/ts',
+  })
+  filepath: string;
+  
+  @ApiProperty({
+    required: false,
     description: '実行コマンド',
     example: 'ffmpeg hoge foga',
   })

@@ -31,9 +31,9 @@ export class JobsController {
     return this.jobsService.findAll();
   }
 
-  @Get('queues')
+  @Get('queue')
   findQueues() {
-    return this.jobsService.findQueues();
+    return this.jobsService.findQueue();
   }
 
   @Get(':id')

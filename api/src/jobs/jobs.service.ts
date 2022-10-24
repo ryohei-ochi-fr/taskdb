@@ -18,8 +18,8 @@ export class JobsService {
     return this.prisma.jobs.findMany();
   }
 
-  findQueues() {
-    return this.prisma.jobs.findMany({ where: { completed: false } });
+  findQueue() {
+    return this.prisma.jobs.findFirst({ where: { completed: false } });
   }
 
   findOne(id: number) {

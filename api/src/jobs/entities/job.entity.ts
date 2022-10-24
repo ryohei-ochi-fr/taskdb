@@ -10,6 +10,9 @@ export class Job {
   priority: number;
 
   @ApiProperty()
+  filepath: string;
+
+  @ApiProperty()
   command: string;
 
   @ApiProperty({ required: false, nullable: true })
