@@ -8,22 +8,32 @@ export class JobsService {
   constructor(private prisma: PrismaService) {}
 
   create(createJobDto: CreateJobDto) {
-    return 'This action adds a new job';
+    // const format = 'yyyy-mm-dd hh:mm:ss';
+    // const bigenAt = parse(createJobDto.beginAt, format, new Date());
+
+    return this.prisma.jobs.create({ data: createJobDto });
   }
 
   findAll() {
-    return `This action returns all jobs`;
+    return this.prisma.jobs.findMany();
+  }
+
+  findQueues() {
+    return this.prisma.jobs.findMany({ where: { completed: false } });
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} job`;
+    return this.prisma.jobs.findUnique({ where: { id } });
   }
 
   update(id: number, updateJobDto: UpdateJobDto) {
-    return `This action updates a #${id} job`;
+    return this.prisma.jobs.update({
+      where: { id },
+      data: updateJobDto,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} job`;
+    return this.prisma.jobs.delete({ where: { id } });
   }
 }

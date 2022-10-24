@@ -133,6 +133,9 @@ npm install typescript ts-node @types/node --save-dev
 npm install prisma --save-dev
 npm install @prisma/client
 
+# 日付処理用
+npm install date-fns --save
+
 # 起動確認
 npx prisma
 
@@ -175,6 +178,11 @@ nest start --watch
 もしくは
 npm run start:dev
 
+
+
+# 
+npm install ffprobe --save
+npm install ffprobe-static -save
 
 ```
 

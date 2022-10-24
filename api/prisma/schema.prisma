@@ -28,4 +28,5 @@ model Jobs {
 //   QUEUED
 //   RUNNING
 //   COLPETED
+//   DELETED
 // }
