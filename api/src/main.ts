@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { TransformInterceptor } from './jobs/transform.interceptor';
+// import { TransformInterceptor } from './jobs/transform.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,7 +15,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  app.useGlobalInterceptors(new TransformInterceptor());
+  // app.useGlobalInterceptors(new TransformInterceptor());
 
   await app.listen(3000);
 }

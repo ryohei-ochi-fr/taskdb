@@ -22,10 +22,10 @@ export class Job {
   completed: boolean;
 
   @ApiProperty({ required: false, nullable: true })
-  beginAt: string | null;
+  beginAt: Date | null;
 
   @ApiProperty({ required: false, nullable: true })
-  finishAt: string | null;
+  finishAt: Date | null;
 
   @ApiProperty()
   createdAt: Date;

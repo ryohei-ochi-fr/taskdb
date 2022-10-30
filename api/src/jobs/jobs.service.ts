@@ -19,7 +19,13 @@ export class JobsService {
   }
 
   findQueue() {
-    return this.prisma.jobs.findFirst({ where: { completed: false } });
+    return this.prisma.jobs.findFirst({
+      where: {
+        completed: false,
+        state: 'QUEUED',
+      },
+      orderBy: { priority: 'desc' },
+    });
   }
 
   findOne(id: number) {

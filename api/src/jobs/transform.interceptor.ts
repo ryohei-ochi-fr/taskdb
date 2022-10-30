@@ -12,11 +12,13 @@ export class TransformInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     const format = 'yyyy-MM-dd HH:mm:ss';
 
+    console.log('body: ', context.switchToHttp().getRequest().body);
+
     let beginAt = context.switchToHttp().getRequest().body.beginAt;
     let finishAt = context.switchToHttp().getRequest().body.finishAt;
 
     // JST(localtime)
-    console.log('beginAt_bfore:', beginAt);
+    console.log('beginAt_before:', beginAt);
 
     beginAt = parse(beginAt, format, new Date());
     finishAt = parse(finishAt, format, new Date());
@@ -27,7 +29,7 @@ export class TransformInterceptor implements NestInterceptor {
     context.switchToHttp().getRequest().body.beginAt = beginAt;
     context.switchToHttp().getRequest().body.finishAt = finishAt;
 
-    console.log('body: ', context.switchToHttp().getRequest().body);
+    // console.log('body: ', context.switchToHttp().getRequest().body);
 
     return next.handle();
   }

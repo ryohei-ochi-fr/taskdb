@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 enum STATE {
   QUEUED = 'QUEUED',
   RUNNING = 'RUNNING',
-  COLPETED = 'COLPETED',
+  COMPLETED = 'COMPLETED',
   DELETED = 'DELETED',
 }
 export class CreateJobDto {
@@ -28,7 +28,7 @@ export class CreateJobDto {
     example: '/path/to/ts',
   })
   filepath: string;
-  
+
   @ApiProperty({
     required: false,
     description: '実行コマンド',
@@ -53,16 +53,16 @@ export class CreateJobDto {
   @ApiProperty({
     required: false,
     description: '実行開始日時',
-    // example: '2022-10-01T00:00:00.000Z',
-    example: '2022-10-01 00:00:00',
+    example: '2022-10-01T00:00:00.000Z',
+    // example: '2022-10-01 00:00:00',
   })
   beginAt: Date;
 
   @ApiProperty({
     required: false,
     description: '実行終了日時',
-    // example: '2022-10-01T00:00:00.000Z',
-    example: '2022-10-01 00:01:00',
+    example: '2022-10-01T00:00:00.000Z',
+    // example: '2022-10-01 00:01:00',
   })
   finishAt: Date;
 }
